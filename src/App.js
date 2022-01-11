@@ -13,6 +13,7 @@ import Step3_1 from './components/Div/step3/ComponentDiv';
 import Step3_2 from './components/Div/step3/ComponentDiv2';
 import Step3_3 from './components/Div/step3/ComponentDiv3';
 import Step3_4 from './components/Div/step3/ComponentDiv4';
+import Step4_1 from './components/Div/step4/ComponentDiv';
 import ComponentBtn from './components/Btn/Step1/ComponentBtn';
 import ComponentBtn2 from './components/Btn/Step1/ComponentBtn2';
 import ComponentBtn3 from './components/Btn/Step1/ComponentBtn3';
@@ -49,6 +50,7 @@ function App() {
         <Step3_3 text='Soy dinamico' myStyles={{background :'blue'}}/>
         <Step3_4 text='Soy dinamico' myStyles={{background :'yellow'}}/>
         4.- div que desaparece
+        <Step4_1 />
         5.- div con funcion dinamica
       </> 
       <>
@@ -66,7 +68,9 @@ function App() {
         <Btn2_3 text="I'm a button"/>
         <Btn2_4 text="I'm a button"/>
         3.- boton con texto y estilos dinamicos
-
+        <Btn3_1 text="dinamic button" myStyles={{background:'red'}} />
+        <Btn3_2 text="dinamic button" myStyles={{background:'red'}} />
+        <Btn3_3 text="dinamic button" myStyles={{background:'red'}} />
         4.- boton que desaparece
         5.- boton con funcion dinamica
       </>
