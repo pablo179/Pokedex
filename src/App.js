@@ -39,6 +39,24 @@ import Btn5_1 from './components/Btn/Step5/ComponentBtn';
 import Btn5_2 from './components/Btn/Step5/ComponentBtn2';
 import Btn5_3 from './components/Btn/Step5/ComponentBtn3';
 
+import ComponentInput from './components/Input/Step1/ComponentInput';
+import ComponentInput2 from './components/Input/Step1/ComponentInput2';
+import ComponentInput3 from './components/Input/Step1/ComponentInput3';
+import ComponentInput4 from './components/Input/Step1/ComponentInput4';
+import ComponentInput5 from './components/Input/Step1/ComponentInput5';
+import ComponentInput6 from './components/Input/Step1/ComponentInput6';
+import Input2_1 from './components/Input/Step2/ComponentInput';
+import Input2_2 from './components/Input/Step2/ComponentInput2';
+import Input2_3 from './components/Input/Step2/ComponentInput3';
+import Input3_1 from './components/Input/Step3/ComponentInput';
+import Input3_2 from './components/Input/Step3/ComponentInput2';
+import Input3_3 from './components/Input/Step3/ComponentInput3';
+import Input4_1 from './components/Input/Step4/ComponentInput';
+import Input4_2 from './components/Input/Step4/ComponentInput2';
+import Input4_3 from './components/Input/Step4/ComponentInput3';
+import Input5_1 from './components/Input/Step5/ComponentInput';
+import Input5_2 from './components/Input/Step5/ComponentInput2';
+import Input5_3 from './components/Input/Step5/ComponentInput3';
 function App() {
   function dynamicFunction(){
     console.log('Soy una funcion dinamica');
@@ -119,10 +137,33 @@ function App() {
       <>
       ****** Input
         1.- input que no hace nada
+        <ComponentInput/>
+        <ComponentInput2/>
+        <ComponentInput3/>
+        <ComponentInput4/>
+        <ComponentInput5/>
+        <ComponentInput6 text="Soy un input"/>
+        <p/>
         2.- input con texto dinamico
+        <Input2_1/>
+        <Input2_2/>
+        <Input2_3/>
+        <p/>
         3.- input con texto y estilos dinamicos
+        <Input3_1 data="Soy un input dinamico" myStyles={{background: 'black',color: 'white'}} />
+        <Input3_2 data="Soy un input dinamico" myStyles={{background: 'gray',color: 'black'}} />
+        <Input3_3 data="Soy un input dinamico" myStyles={{background: 'red',color: 'white'}} />
+        <p/>
         4.- input que desaparece
+        <Input4_1 />
+        <Input4_2 />
+        <Input4_3 />
+        <p/>
         5.- input con funcion dinamica
+        <Input5_1 myFunction={dynamicFunction}/>
+        <Input5_2 myFunction={dynamicFunction2}/>
+        <Input5_3 myFunction={dynamicFunction3}/>
+        <p/>
       </>
       <>
       ****** Pokemon

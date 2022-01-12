@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const ComponentDiv5= ()=>{
     const [text] = React.useState('Soy un div');
