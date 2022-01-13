@@ -25,13 +25,19 @@ import ComponentBtn3 from './components/Btn/Step1/ComponentBtn3';
 import ComponentBtn4 from './components/Btn/Step1/ComponentBtn4';
 import ComponentBtn5 from './components/Btn/Step1/ComponentBtn5';
 import ComponentBtn6 from './components/Btn/Step1/ComponentBtn6';
-import Btn2_1 from './components/Btn/Step2/ComponentBtn'
-import Btn2_2 from './components/Btn/Step2/ComponentBtn2'
-import Btn2_3 from './components/Btn/Step2/ComponentBtn3'
-import Btn2_4 from './components/Btn/Step2/ComponentBtn4'
-import Btn3_1 from './components/Btn/Step3/ComponentBtn'
-import Btn3_2 from './components/Btn/Step3/ComponentBtn2'
-import Btn3_3 from './components/Btn/Step3/ComponentBtn3'
+import Btn2_1 from './components/Btn/Step2/ComponentBtn';
+import Btn2_2 from './components/Btn/Step2/ComponentBtn2';
+import Btn2_3 from './components/Btn/Step2/ComponentBtn3';
+import Btn2_4 from './components/Btn/Step2/ComponentBtn4';
+import Btn3_1 from './components/Btn/Step3/ComponentBtn';
+import Btn3_2 from './components/Btn/Step3/ComponentBtn2';
+import Btn3_3 from './components/Btn/Step3/ComponentBtn3';
+import Btn4_1 from './components/Btn/Step4/ComponentBtn';
+import Btn4_2 from './components/Btn/Step4/ComponentBtn2';
+import Btn4_3 from './components/Btn/Step4/ComponentBtn3';
+import Btn5_1 from './components/Btn/Step5/ComponentBtn';
+import Btn5_2 from './components/Btn/Step5/ComponentBtn2';
+import Btn5_3 from './components/Btn/Step5/ComponentBtn3';
 
 function App() {
   function dynamicFunction(){
@@ -75,6 +81,7 @@ function App() {
 
       </> 
       <>
+        <p/>
       ****** Button
         1.- boton que no hace nada
         <ComponentBtn />
@@ -83,17 +90,31 @@ function App() {
         <ComponentBtn4/>
         <ComponentBtn5/>
         <ComponentBtn6 text="I'm a button"/>
+        <p/>
         2.- boton con texto dinamico
         <Btn2_1 text="I'm a button"/>
         <Btn2_2 text="I'm a button"/>
         <Btn2_3 text="I'm a button"/>
         <Btn2_4 text="I'm a button"/>
+        <p/>
+      
         3.- boton con texto y estilos dinamicos
         <Btn3_1 text='Soy dinamico' myStyles={{background :'red'}}/>
         <Btn3_2 text='Soy dinamico' myStyles={{background :'green'}}/>
         <Btn3_3 text='Soy dinamico' myStyles={{background :'blue'}}/>
+        <p/>
+        
         4.- boton que desaparece
+        <Btn4_1/>
+        <Btn4_2/>
+        <Btn4_3/>
+        <p/>
+
         5.- boton con funcion dinamica
+        <Btn5_1 myFunction={dynamicFunction} />
+        <Btn5_2 myFunction={dynamicFunction2} />
+        <Btn5_3 myFunction={dynamicFunction3} />
+        <p/>
       </>
       <>
       ****** Input
