@@ -60,7 +60,10 @@ import PokemonImage from './components/pokemonCard/Step1/PokemonImage';
 import PokemonFields from './components/pokemonCard/Step1/PokemonFields';
 import Pokemon2_1 from  './components/pokemonCard/Step2/PokemonImage';
 import Pokemon2_2 from  './components/pokemonCard/Step2/PokemonFields';
-
+import UseeEffect_1 from './components/UseeEffect/ComponentUseeffect';
+import UseeEffect_2 from './components/UseeEffect/ComponentUseeffect2';
+import UseeEffect_3 from './components/UseeEffect/ComponentUseeffect3';
+import UseeEffect_4 from './components/UseeEffect/ComponentUseeffect4';
 function App() {
   function dynamicFunction(){
     console.log('Soy una funcion dinamica');
@@ -170,10 +173,15 @@ function App() {
       </>
       <>
       ****** UseEffect
-        1.- llenar un input la primera vez
-        1.- checar si dos inputs estan completos
+        1.- llenar un div la primera vez
+        <UseeEffect_1/>
         2.- cerrar cuando el numero sea 10
-        3.- cerrar despues de 5 segundos
+        <UseeEffect_2/>
+        3.- checar si dos inputs estan completos
+        <UseeEffect_3/>
+        4.- cerrar despues de 5 segundos
+        <UseeEffect_4/>
+        <p/>
       </>
       <>
       ****** Pokemon
