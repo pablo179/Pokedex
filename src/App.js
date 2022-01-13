@@ -56,6 +56,11 @@ import Input4_3 from './components/Input/Step4/ComponentInput3';
 import Input5_1 from './components/Input/Step5/ComponentInput';
 import Input5_2 from './components/Input/Step5/ComponentInput2';
 import Input5_3 from './components/Input/Step5/ComponentInput3';
+import PokemonImage from './components/pokemonCard/Step1/PokemonImage';
+import PokemonFields from './components/pokemonCard/Step1/PokemonFields';
+import Pokemon2_1 from  './components/pokemonCard/Step2/PokemonImage';
+import Pokemon2_2 from  './components/pokemonCard/Step2/PokemonFields';
+
 function App() {
   function dynamicFunction(){
     console.log('Soy una funcion dinamica');
@@ -166,6 +171,12 @@ function App() {
       <>
       ****** Pokemon
         1.- pokemon component (all examples)
+        <p/>
+        <PokemonImage image="https://assets.pokemon.com/assets/cms2/img/pokedex/full/658.png"/>
+        <PokemonFields name="Greninja" number="N.º 658"/>
+
+        <Pokemon2_1 image="https://assets.pokemon.com/assets/cms2/img/pokedex/full/644.png"/>
+        <Pokemon2_2 name="Zekrom" number="N.º 644"/>
       </>
       <>
       ****** Message
