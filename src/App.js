@@ -164,6 +164,13 @@ function App() {
         <p/>
       </>
       <>
+      ****** UseEffect
+        1.- llenar un input la primera vez
+        1.- checar si dos inputs estan completos
+        2.- cerrar cuando el numero sea 10
+        3.- cerrar despues de 5 segundos
+      </>
+      <>
       ****** Pokemon
         1.- pokemon component (all examples)
       </>
