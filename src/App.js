@@ -1,4 +1,3 @@
-import './App.css';
 import ComponentDiv from './components/Div/step1/ComponentDiv';
 import ComponentDiv2 from './components/Div/step1/ComponentDiv2';
 import ComponentDiv3 from './components/Div/step1/ComponentDiv3';
