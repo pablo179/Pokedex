@@ -5,7 +5,7 @@ class ComponentInput extends React.Component{
         super(props)
     }
     render(){
-        return <input type="text" data={this.props.placeholder} style={this.props.myStyles} />
+        return <input type="text" placeholder={this.props.data} style={this.props.myStyles} />
     }
 }
 export default ComponentInput;

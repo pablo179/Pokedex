@@ -3,7 +3,10 @@ import React from "react";
 function ComponentInput2(){
 
     const [text, setText] = React.useState("Soy dinamico"); 
-    return <div><input type="text" onChange={(e)=>setText(e.target.value)} placeholder="Soy un input dinamico" /><div>{text}</div></div>
+    const changeText=(e)=>{
+        setText(e.target.value);
+    }
+    return <div><input type="text" onChange={changeText} placeholder="Soy un input dinamico" /><div>{text}</div></div>
 
 }
 export default ComponentInput2;
