@@ -32,6 +32,12 @@ import Btn2_4 from './components/Btn/Step2/ComponentBtn4';
 import Btn3_1 from './components/Btn/Step3/ComponentBtn';
 import Btn3_2 from './components/Btn/Step3/ComponentBtn2';
 import Btn3_3 from './components/Btn/Step3/ComponentBtn3';
+import Btn4_1 from './components/Btn/Step4/ComponentBtn';
+import Btn4_2 from './components/Btn/Step4/ComponentBtn2';
+import Btn4_3 from './components/Btn/Step4/ComponentBtn3';
+import Btn5_1 from './components/Btn/Step5/ComponentBtn';
+import Btn5_2 from './components/Btn/Step5/ComponentBtn2';
+import Btn5_3 from './components/Btn/Step5/ComponentBtn3';
 
 import ComponentInput from './components/Input/Step1/ComponentInput';
 import ComponentInput2 from './components/Input/Step1/ComponentInput2';
@@ -117,7 +123,15 @@ function App() {
         <p/>
         
         4.- boton que desaparece
+        <Btn4_1/>
+        <Btn4_2/>
+        <Btn4_3/>
+        <p/>
         5.- boton con funcion dinamica
+        <Btn5_1 myFunction={dynamicFunction}/>
+        <Btn5_2 myFunction={dynamicFunction2}/>
+        <Btn5_3 myFunction={dynamicFunction3}/>
+        <p/>
       </>
       <>
       ****** Input
