@@ -148,5 +148,5 @@
   flex-direction: column;
 }
 .pokemonContainer--description{
-  
+  display: flex;
 }
