@@ -31,6 +31,12 @@ import Btn2_4 from './components/Btn/Step2/ComponentBtn4';
 import Btn3_1 from './components/Btn/Step3/ComponentBtn';
 import Btn3_2 from './components/Btn/Step3/ComponentBtn2';
 import Btn3_3 from './components/Btn/Step3/ComponentBtn3';
+import Btn4_1 from './components/Btn/Step4/ComponentBtn';
+import Btn4_2 from './components/Btn/Step4/ComponentBtn2';
+import Btn4_3 from './components/Btn/Step4/ComponentBtn3';
+import Btn5_1 from './components/Btn/Step5/ComponentBtn';
+import Btn5_2 from './components/Btn/Step5/ComponentBtn2';
+import Btn5_3 from './components/Btn/Step5/ComponentBtn3';
 
 import ComponentInput from './components/Input/Step1/ComponentInput';
 import ComponentInput2 from './components/Input/Step1/ComponentInput2';
@@ -51,6 +57,10 @@ import Input5_1 from './components/Input/Step5/ComponentInput';
 import Input5_2 from './components/Input/Step5/ComponentInput2';
 import Input5_3 from './components/Input/Step5/ComponentInput3';
 
+import UseeEffect_1 from './components/UseeEffect/ComponentUseeffect';
+import UseeEffect_2 from './components/UseeEffect/ComponentUseeffect2';
+import UseeEffect_3 from './components/UseeEffect/ComponentUseeffect3';
+import UseeEffect_4 from './components/UseeEffect/ComponentUseeffect4';
 function App() {
   function dynamicFunction(){
     console.log('Soy una funcion dinamica');
@@ -117,7 +127,15 @@ function App() {
         <p/>
         
         4.- boton que desaparece
+        <Btn4_1/>
+        <Btn4_2/>
+        <Btn4_3/>
+        <p/>
         5.- boton con funcion dinamica
+        <Btn5_1 myFunction={dynamicFunction}/>
+        <Btn5_2 myFunction={dynamicFunction2}/>
+        <Btn5_3 myFunction={dynamicFunction3}/>
+        <p/>
       </>
       <>
       ****** Input
@@ -148,6 +166,18 @@ function App() {
         <Input5_1 myFunction={dynamicFunction}/>
         <Input5_2 myFunction={dynamicFunction2}/>
         <Input5_3 myFunction={dynamicFunction3}/>
+        <p/>
+      </>
+      <>
+      ****** UseEffect
+        1.- llenar un div la primera vez
+        <UseeEffect_1/>
+        2.- cerrar cuando el numero sea 10
+        <UseeEffect_2/>
+        3.- checar si dos inputs estan completos
+        <UseeEffect_3/>
+        4.- cerrar despues de 5 segundos
+        <UseeEffect_4/>
         <p/>
       </>
       <>
