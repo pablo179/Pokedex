@@ -1,13 +1,45 @@
 import styled from "styled-components";
+const cardBackground = {
+    green: '#a8d141',
+    black: '#000000',
+    blue: '#0C5096',
+    brown: '#C77228',
+    gray: '#B5ADA3',
+    pink: '#EB78CD',
+    purple: '#985EEB',
+    red: '#B33136',
+    yellow: '#E3DE04',
+    white: '#FFFFFF'
+}
+const typeBackground ={
+    grass: '#56be36',
+    fire: '#E64B50',
+    poison: '#b97fc9',
+    flying: '#3dc7ef',
+    water: '#4592c4',
+    bug: '#74E600',
+    normal: '#a4acaf',
+    electric: '#eed535',
+    rock: '#a38c21',
+    ghost: '#7b62a3',
+    psychic: '#f366b9',
+    dragon: 'linear-gradient(180deg, #53a4cf 50%, #f16e57 50%)',
+    fairy: '#fdb9e9',
+    dark: '#707070 ',
+    steel: '#9eb7b8',
+    ice: '#51c4e7',
+    ground: '#ab9842',
+    fighting: '#d56723'
+}
 export const PokedexPage = styled.div`
     width:100%;
-    height:100vh;
+    min-height:100vh;
     display:flex;
     flex-direction: column;
     align-items:center;
     padding: 20px 50px;
     background-color: #d1d0d0;
-`; 
+`;
 export const Header = styled.header`
     width: 80%;
     height: 60px;
@@ -21,14 +53,14 @@ export const Header = styled.header`
     color: #989797;
     font-weight:500;
     font-size: 20px;
-`; 
+`;
 export const HeaderIcon = styled.img`
     width:40px;
     margin-right:10px;
     cursor: pointer;
 `;
 
-export const SearchContainer =  styled.div`
+export const SearchContainer = styled.div`
     width: 100%;
     height: 40px;
     position: relative;
@@ -54,4 +86,69 @@ export const SearchButton = styled.img`
     top: 5px;
     cursor: pointer;
 `;
+export const CardContainer = styled.div`
+    width: 280px;
+    min-height: 200px;
+    padding: 20px;
+    border-radius: 7px;
+    ${({color})=> cardBackground[color] ? `background:${cardBackground[color]};` : 'background: white;'}
+    box-shadow: rgb(0 0 0 / 40%) 1px 1px 6px 3px;
+    display: flex;
+    ${({color})=> color === 'white'? `color: black;`:`color: white;` }
+    flex-direction:column;
+    align-items: center;
+    font-size: 29px;
+    margin: 5px;
+`;
 
+export const CardRow = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+`
+
+export const PokemonGrid = styled.div`
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+`
+
+export const PokemonNumber = styled.div`
+    min-width: 70px;
+    border-radius: 4px;
+    filter: brightness(1.1);
+    font-weight: bolder;
+    font-size: 17px;
+    line-height: 30px;
+    text-align: center;
+    ${({color})=>cardBackground[color] ? `background:${cardBackground[color]};` : 'background: white;'}
+` 
+export const TypeContainer = styled.div`
+    width: 72%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+`
+export const Type = styled.div`
+    width: 80%;
+    height: 26px;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 15px;
+    
+    ${({type})=>typeBackground[type] ? `background: ${typeBackground[type]};`: `background: white;` }
+    display: flex;
+    align-item: center;
+    justify-content: center;
+    color: white;
+`;
+
+export const PokemonImg = styled.img`
+    width: 80%;
+    padding: 10%;
+`;
