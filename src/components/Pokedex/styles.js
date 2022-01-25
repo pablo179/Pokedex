@@ -10,14 +10,14 @@ const cardBackground = {
     red: '#B33136',
     yellow: '#E3DE04',
     white: '#FFFFFF'
-}
+};
 const typeBackground ={
     grass: '#56be36',
     fire: '#E64B50',
     poison: '#b97fc9',
     flying: '#3dc7ef',
     water: '#4592c4',
-    bug: '#74E600',
+    bug: '#74E411',
     normal: '#a4acaf',
     electric: '#eed535',
     rock: '#a38c21',
@@ -30,7 +30,7 @@ const typeBackground ={
     ice: '#51c4e7',
     ground: '#ab9842',
     fighting: '#d56723'
-}
+};
 export const PokedexPage = styled.div`
     width:100%;
     min-height:100vh;
@@ -73,9 +73,11 @@ export const SearchInput = styled.input`
     height: 100%;
     border: none;
     padding: 0 5px;
+    padding-left: 20px;
     outline: none;
     background: #f3f3f3c4;
     border-radius:12px;
+
 `;
 
 export const SearchButton = styled.img`
@@ -119,7 +121,7 @@ export const PokemonGrid = styled.div`
 export const PokemonNumber = styled.div`
     min-width: 70px;
     border-radius: 4px;
-    filter: brightness(1.1);
+    filter: brightness(.9);
     font-weight: bolder;
     font-size: 17px;
     line-height: 30px;
@@ -137,10 +139,9 @@ export const Type = styled.div`
     width: 80%;
     height: 26px;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 15px;
     text-align: center;
     font-size: 15px;
-    
     ${({type})=>typeBackground[type] ? `background: ${typeBackground[type]};`: `background: white;` }
     display: flex;
     align-item: center;
