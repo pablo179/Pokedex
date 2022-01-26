@@ -3,13 +3,13 @@ import {Header,HeaderIcon,SearchContainer,SearchInput,SearchButton} from "./styl
 import pikachuImg from '../../assets/pikachu.png'
 import navigator from '../../assets/navigator.png'
 import egg from '../../assets/egg.png'
-const PokedexHeader = ()=>{
+const PokedexHeader = ({action,shuffle})=>{
     return (
         <Header> <HeaderIcon src={pikachuImg}/> Pokedex <SearchContainer>
-        <SearchInput placeholder="Busqueda por nombre o número"/>
+        <SearchInput onChange={action} placeholder="Busqueda por nombre o número"/>
         <SearchButton src={navigator}/>
         </SearchContainer>
-        <HeaderIcon src={egg}/>
+        <HeaderIcon onClick={shuffle} src={egg} on/>
         </Header>
     )
 }
