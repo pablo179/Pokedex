@@ -99,6 +99,7 @@ export const CardContainer = styled.div`
     align-items: center;
     font-size: 29px;
     margin: 5px;
+    
 `;
 
 export const CardRow = styled.div`
@@ -114,6 +115,7 @@ export const PokemonGrid = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
+    justify-content: center;
 `
 
 export const PokemonNumber = styled.div`
@@ -151,4 +153,23 @@ export const Type = styled.div`
 export const PokemonImg = styled.img`
     width: 80%;
     padding: 10%;
+    max-width: 160px;
+`;
+export const Loading = styled.img`
+    width: 60px;
+    margin-top: 50px;
+`
+export const LoadMore = styled.button`
+    width: 150px;
+    height: 32px;
+    border: none;
+    background: #525A95;
+    border-radius: 7px;
+    box-shadow: rgb(0 0 0 / 40%) 1px 1px 6px 3px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    &:hover{
+        filter: brightness(1.5);
+    }
 `;
