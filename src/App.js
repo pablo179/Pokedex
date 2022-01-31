@@ -1,15 +1,27 @@
-import React from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
 import Pokedex from './components/Pokedex'
 import PokemonPage from './components/PokemonPage'
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
+
 const App = () => {
+    const [modalIsOpen,setIsOpen] = useState(false);
+    const closeModal = ()=>{
+        setIsOpen(false);
+    }
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route exact path="/" element={<Pokedex />} />
-                <Route exact path="/pokemon" element={<PokemonPage />} />
-            </Routes>
-        </BrowserRouter>
+     <>
+        <button onClick={()=>setIsOpen(true)}>abreme</button>
+        <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel='Example'
+        >
+            <h1>Title</h1>
+        </Modal>
+        <Pokedex/>
+     </>
     )
 }
 

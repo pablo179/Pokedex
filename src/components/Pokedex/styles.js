@@ -107,7 +107,10 @@ export const CardRow = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+`
+export const PokemonRow = styled(CardRow)`
+    min-height: 163px;
+    max-height: 163px;
 `
 
 export const PokemonGrid = styled.div`
@@ -154,6 +157,7 @@ export const PokemonImg = styled.img`
     width: 80%;
     padding: 10%;
     max-width: 160px;
+    min-height: 160px; 
 `;
 export const Loading = styled.img`
     width: 60px;
@@ -172,4 +176,11 @@ export const LoadMore = styled.button`
     &:hover{
         filter: brightness(1.5);
     }
+`;
+export const GridContainer = styled.div`
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 `;

@@ -1,47 +1,28 @@
 import React, { useEffect, useState } from "react";
 import PokedexHeader from "./Header";
-import { PokedexPage, PokemonGrid, Loading, LoadMore } from "./styles";
+import { PokedexPage, PokemonGrid, Loading, LoadMore, GridContainer } from "./styles";
 import PokemonCard from "./PokemonCard";
 import axios from "axios";
 import loading from "../../assets/loading.svg"
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Pokedex = () => {
   const [pokemonList, setPokemonList] = useState([]);
-  const [isLoading, setLoading] = useState([true]);
   const [search, setSearch] = useState('');
   const [filteredList, setFilteredList] = useState([]);
-  const [nextUrl, setNextUrl] = useState('');
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [shuffleList, setShuffleList] = useState([]);
-
-  useEffect(async () => {
-    const pokemonRequest = await axios.get('https://pokeapi.co/api/v2/pokemon');
-    const list = pokemonRequest.data.results;
-    setNextUrl(pokemonRequest.data.next)
-    let pokemonDataList = [...Array(20).keys()];
-    for (let i = 0; i < list.length; i++) {
-      const pokemonData = await axios.get(list[i].url);
-      const pokemonSṕecies = await axios.get(pokemonData.data.species.url);
-      const data = {
-        name: list[i].name,
-        id: pokemonData.data.id,
-        types: pokemonData.data.types,
-        color: pokemonSṕecies.data.color.name,
-        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonData.data.id}.gif`,
-      };
-      pokemonDataList[i] = data;
-    };
-    setPokemonList(pokemonDataList);    
-    setLoading(false);
-  }, []);
+  const [nextUrl, setNextUrl] = useState('https://pokeapi.co/api/v2/pokemon');
+  const [isShuffle, setIsShuffle] = useState(false);
+  const [history,setHistory] = useState([]);
+  
+  useEffect(() => {
+    getNextArray();
+  }, [])
 
   const getNextArray = async () => {
-    setIsLoaded(true);
-    setLoading(true);
     const pokemonRequest = await axios.get(nextUrl);
     const list = pokemonRequest.data.results;
-    setNextUrl(pokemonRequest.data.next)
-    let pokemonDataList = [...Array(20).keys()];
+    setNextUrl(pokemonRequest.data?.next ? pokemonRequest.data.next : null);
+    let pokemonDataList = [];
     for (let i = 0; i < list.length; i++) {
       const pokemonData = await axios.get(list[i].url);
       const pokemonSṕecies = await axios.get(pokemonData.data.species.url);
@@ -52,11 +33,9 @@ const Pokedex = () => {
         color: pokemonSṕecies.data.color.name,
         image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonData.data.id}.gif`,
       };
-      pokemonDataList[i] = data;
+      pokemonDataList = [...pokemonDataList, data];
     };
     setPokemonList([...pokemonList, ...pokemonDataList])
-    setLoading(false);
-    startListener();
   }
 
   useEffect(() => {
@@ -64,60 +43,107 @@ const Pokedex = () => {
     setFilteredList([...localList])
   }, [search]);
 
-  const listenerFunction = () => { }
-
-  const startListener = () => {
-    window.addEventListener('scroll', () => {
-      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      if (scrollTop + clientHeight >= scrollHeight - 10) {
-        window.removeEventListener('scroll', () => { }, true);
-        getNextArray();
-
-      }
-    })
-  }
-  useEffect(() => {
-    if (isLoaded) {
-      startListener();
-    }
-  }, [isLoaded]);
-
   const makeSearch = (e) => {
     setSearch(e.target.value);
   };
+  const makeArray = ()=>{
+    let randomArray = [];
+      for(let i=0; i<20; i++){
+        let random = 0;
+        let flag = true;
+        while(flag){
+          random = Math.floor(Math.random() * (899 - 1)) + 1;
+          if(randomArray.indexOf(random) === -1){
+            flag=false;
+          }
+        }
+        randomArray.push(random);
+      }   
+    
+    return randomArray;
+  }
 
+  const checkHistory = (randomArray)=>{
+    let flag = false;
+    randomArray.forEach((item) => {
+      if(history.indexOf(item) !== -1){
+        flag=true;
+      }
+    });
+    return flag;
+  }
   const makeShuffle = async () => {
-    let pokemonDataList = [...Array(20).keys()];
-    for (let i = 0; i < pokemonDataList.length; i++) {
-      let random = Math.floor(Math.random()* (899))-1;
-      const pokemonRequest = await axios.get(`https://pokeapi.co/api/v2/pokemon/${random}`);
-        const pokemonSpecies = await axios.get(pokemonRequest.data.species.url);
-        const data = {
-          name: pokemonRequest.data.name,
-          id: pokemonRequest.data.id,
-          types: pokemonRequest.data.types,
-          color: pokemonSpecies.data.color.name,
-          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonRequest.data.id}.gif`,
-        };
-        pokemonDataList[i] = data;
+    setIsShuffle(false);
+    setPokemonList([]);
+    let randomArray;
+    let flag = true;
+    while(flag){
+      randomArray = makeArray();
+      if(!checkHistory(randomArray)){
+        flag = false;
+      }
     }
+    
+    if(history.length < 60){
+      setHistory([...history,...randomArray]);
+    }else{
+      setHistory([]);
+    }
+
+    let pokemonDataList = [];
+    for (let i = 0; i < randomArray.length; i++) {
+
+      const pokemonRequest = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomArray[i]}`);
+      const pokemonSpecies = await axios.get(pokemonRequest.data.species.url);
+      const data = {
+        name: pokemonRequest.data.name,
+        id: pokemonRequest.data.id,
+        types: pokemonRequest.data.types,
+        color: pokemonSpecies.data.color.name,
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonRequest.data.id}.png`,
+      };
+      pokemonDataList[i] = data;
+    }
+    setIsShuffle(true);
     setPokemonList(pokemonDataList);
   }
 
   return (
     <PokedexPage>
       <PokedexHeader action={makeSearch} shuffle={makeShuffle} />
-      <PokemonGrid >
-        {
-          filteredList.length < 1 ?
-            search == '' ? pokemonList.map((pokemon) => <PokemonCard {...pokemon} />) :
-              'No se encontro este Pokemon'
-            :
-            filteredList.map((pokemon) => <PokemonCard{...pokemon} />)
-        }
-      </PokemonGrid>
-      {isLoading && <Loading src={loading} />}
-      {!isLoaded && <LoadMore onClick={getNextArray} >Cargar más Pokémon</LoadMore>}
+      {
+        isShuffle ?
+          <GridContainer>
+            <PokemonGrid >
+              {
+                search === '' ?
+                  pokemonList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+                  :
+                  filteredList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+              }
+            </PokemonGrid>
+          </GridContainer>
+          :
+          <InfiniteScroll
+            next={search === '' ? getNextArray : () => { }}
+            hasMore={nextUrl}
+            loader={search === '' ? <Loading src={loading} /> : null}
+            endMessage={<p>FIN</p>}
+            style={{ width: '98vw', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}
+            dataLength={search === '' ? pokemonList.length : filteredList.length}
+
+          >
+
+            <PokemonGrid >
+              {
+                search === '' ?
+                  pokemonList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+                  :
+                  filteredList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+              }
+            </PokemonGrid>
+          </InfiniteScroll>
+      }
 
     </PokedexPage>)
 }
