@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled ,{keyframes} from "styled-components";
 const cardBackground = {
     green: '#a8d141',
     black: '#000000',
@@ -86,6 +86,18 @@ export const SearchButton = styled.img`
     top: 5px;
     cursor: pointer;
 `;
+const pickAnimation = keyframes`
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-8px);   
+    }
+    100%{
+        transform: translateY(0px);   
+
+    }
+`;
 export const CardContainer = styled.div`
     width: 280px;
     min-height: 200px;
@@ -99,7 +111,12 @@ export const CardContainer = styled.div`
     align-items: center;
     font-size: 29px;
     margin: 5px;
-    
+    cursor: pointer;
+    &:hover{
+        animation-name: ${pickAnimation};
+        animation-duration: .5s;
+        animation-iteration-count: 1;
+    }
 `;
 
 export const CardRow = styled.div`

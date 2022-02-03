@@ -1,14 +1,21 @@
 import React from "react";
-import PokemonFields from './PokemonFields'
-import PokemonImage from './PokemonImage'
-import PokemonType from "./PokemonType";
-const PokemonCard = (props)=>{
+import {Card,HeaderRow, PokemonImage,PokemonFrame,DataRow} from './style'
+import {realNumber} from '../../utils'
+const PokemonCard = ({color,image,id,name,types})=>{
     return (
-        <div className="pokemonCard">
-                <PokemonImage image={props.image} />
-                <PokemonFields number ={props.number} name={props.name} />
-              <div className="pokemonCard--types">  <PokemonType type={props.type}/> <PokemonType type={props.type2}/></div>
-        </div>
+        <Card color={color}>
+            <HeaderRow>
+                {realNumber(id)}
+                <div style={{alignSelf: 'end',fontFamily: 'Rationale'}}>{name}</div>
+            </HeaderRow>
+        
+                <DataRow>
+                    <PokemonFrame>
+                        <PokemonImage src={image} />
+                    </PokemonFrame>
+                </DataRow>
+        
+        </Card>
     )
 }
 export default PokemonCard

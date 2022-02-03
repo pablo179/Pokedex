@@ -6,7 +6,7 @@ import axios from "axios";
 import loading from "../../assets/loading.svg"
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const Pokedex = () => {
+const Pokedex = ({openModal}) => {
   const [pokemonList, setPokemonList] = useState([]);
   const [search, setSearch] = useState('');
   const [filteredList, setFilteredList] = useState([]);
@@ -100,7 +100,7 @@ const Pokedex = () => {
         id: pokemonRequest.data.id,
         types: pokemonRequest.data.types,
         color: pokemonSpecies.data.color.name,
-        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonRequest.data.id}.png`,
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonRequest.data.id}.gif`,
       };
       pokemonDataList[i] = data;
     }
@@ -117,9 +117,9 @@ const Pokedex = () => {
             <PokemonGrid >
               {
                 search === '' ?
-                  pokemonList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+                  pokemonList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} openModal={openModal} />)
                   :
-                  filteredList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+                  filteredList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} openModal={openModal} />)
               }
             </PokemonGrid>
           </GridContainer>
@@ -131,15 +131,14 @@ const Pokedex = () => {
             endMessage={<p>FIN</p>}
             style={{ width: '98vw', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}
             dataLength={search === '' ? pokemonList.length : filteredList.length}
-
           >
 
             <PokemonGrid >
               {
                 search === '' ?
-                  pokemonList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+                  pokemonList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon}   openModal={openModal} />)
                   :
-                  filteredList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+                  filteredList.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} openModal={openModal}/>)
               }
             </PokemonGrid>
           </InfiniteScroll>
