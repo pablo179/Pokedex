@@ -171,10 +171,10 @@ export const Type = styled.div`
 `;
 
 export const PokemonImg = styled.img`
-    width: 80%;
-    padding: 10%;
-    max-width: 160px;
-    min-height: 160px; 
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    object-fit: contain;
 `;
 export const Loading = styled.img`
     width: 60px;

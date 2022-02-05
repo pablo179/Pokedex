@@ -22,7 +22,7 @@ const App = () => {
             onRequestClose={closeModal}
             contentLabel='Example'
             style={{content :{
-                width: '800px',
+                width: '600px',
                 height: '90%',
                 top: '50%',
                 left: '50%',

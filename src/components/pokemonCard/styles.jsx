@@ -49,3 +49,35 @@ export const DataRow = styled(HeaderRow)`
     height: 178px;
     padding-top: 0;
 `;
+export const TypeContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    width: 174px;
+    margin: 0 20px;
+`;
+export const TypeImage = styled.img`
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 10px;    
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+    border-radius: 50px;
+    box-shadow:rgba(0,0,0,25%) 4px 4px 10px 5px;
+`;
+export const Information = styled.div`
+    width: 174px;
+    display: flex;
+    flex-direction: column;
+    align-item: center;
+    justify-content: space-around;
+    color: white;
+    font-family: 'Rationale', sans-serif; 
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: none;
+    & div{
+        width: 100%;
+    }
+`;
