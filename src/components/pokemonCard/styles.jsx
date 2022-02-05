@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Bar } from 'react-chartjs-2';
 
 const cardBackground = {
     green: '#a8d141',
@@ -80,4 +81,7 @@ export const Information = styled.div`
     & div{
         width: 100%;
     }
+`;
+
+export const StyledRadar = styled(Bar)`
 `;
