@@ -15,7 +15,7 @@ function PokedexHeader({ action, shuffle }) {
   return (
     <Header>
       <HeaderIcon src={pikachuImg} />
-      Pokedex
+      Pokedex deploy
       <SearchContainer>
         <SearchInput onChange={action} placeholder="Busqueda por nombre o número" />
         <SearchButton src={navigator} />
