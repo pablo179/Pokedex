@@ -1,5 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
+import styled from "styled-components";
 const cardBackground = {
   green: '#a8d141',
   black: '#00000E',
@@ -87,38 +86,20 @@ export const SearchButton = styled.img`
     top: 5px;
     cursor: pointer;
 `;
-const pickAnimation = keyframes`
-    0%{
-        transform: translateY(0px);
-    }
-    50%{
-        transform: translateY(-8px);   
-    }
-    100%{
-        transform: translateY(0px);   
-
-    }
-`;
 export const CardContainer = styled.div`
     width: 280px;
     min-height: 200px;
     padding: 20px;
     border-radius: 7px;
-    ${({ color }) => (cardBackground[color] ? `background:${cardBackground[color]};` : 'background: white;')}
+    ${({color})=> cardBackground[color] ? `background:${cardBackground[color]};` : 'background: white;'}
     box-shadow: rgb(0 0 0 / 40%) 1px 1px 6px 3px;
     display: flex;
-    ${({ color }) => (color === 'white' ? 'color: black;' : 'color: white;')}
+    ${({color})=> color === 'white'? `color: black;`:`color: white;` }
     flex-direction:column;
     align-items: center;
     font-size: 29px;
     margin: 5px;
-    cursor: pointer;
-    text-transform: capitalize;
-    &:hover{
-        animation-name: ${pickAnimation};
-        animation-duration: .5s;
-        animation-iteration-count: 1;
-    }
+    
 `;
 
 export const CardRow = styled.div`
@@ -126,11 +107,8 @@ export const CardRow = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-`;
-export const PokemonRow = styled(CardRow)`
-    min-height: 163px;
-    max-height: 163px;
-`;
+    
+`
 
 export const PokemonGrid = styled.div`
     width: 80%;
@@ -138,7 +116,7 @@ export const PokemonGrid = styled.div`
     flex-wrap: wrap;
     margin-top: 20px;
     justify-content: center;
-`;
+`
 
 export const PokemonNumber = styled.div`
     min-width: 70px;
@@ -148,15 +126,15 @@ export const PokemonNumber = styled.div`
     font-size: 17px;
     line-height: 30px;
     text-align: center;
-    ${({ color }) => (cardBackground[color] ? `background:${cardBackground[color]};` : 'background: white;')}
-`;
+    ${({color})=>cardBackground[color] ? `background:${cardBackground[color]};` : 'background: white;'}
+` 
 export const TypeContainer = styled.div`
     width: 72%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-`;
+`
 export const Type = styled.div`
     width: 80%;
     height: 26px;
@@ -165,7 +143,7 @@ export const Type = styled.div`
     text-align: center;
     font-size: 15px;
     
-    ${({ type }) => (typeBackground[type] ? `background: ${typeBackground[type]};` : 'background: white;')}
+    ${({type})=>typeBackground[type] ? `background: ${typeBackground[type]};`: `background: white;` }
     display: flex;
     align-item: center;
     justify-content: center;
@@ -173,15 +151,14 @@ export const Type = styled.div`
 `;
 
 export const PokemonImg = styled.img`
-    width: 150px;
-    height: 150px;
-    padding: 10px;
-    object-fit: contain;
+    width: 80%;
+    padding: 10%;
+    max-width: 160px;
 `;
 export const Loading = styled.img`
     width: 60px;
     margin-top: 50px;
-`;
+`
 export const LoadMore = styled.button`
     width: 150px;
     height: 32px;
@@ -195,11 +172,4 @@ export const LoadMore = styled.button`
     &:hover{
         filter: brightness(1.5);
     }
-`;
-export const GridContainer = styled.div`
-    width: 98vw;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
 `;
