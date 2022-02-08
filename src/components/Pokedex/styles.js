@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 const cardBackground = {
   green: '#a8d141',
-  black: '#000000',
+  black: '#00000E',
   blue: '#0C5096',
   brown: '#C77228',
   gray: '#B5ADA3',
