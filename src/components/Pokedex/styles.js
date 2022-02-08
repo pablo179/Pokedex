@@ -1,36 +1,36 @@
 import styled from "styled-components";
 const cardBackground = {
-    green: '#a8d141',
-    black: '#000000',
-    blue: '#0C5096',
-    brown: '#C77228',
-    gray: '#B5ADA3',
-    pink: '#EB78CD',
-    purple: '#985EEB',
-    red: '#B33136',
-    yellow: '#E3DE04',
-    white: '#FFFFFF'
-}
-const typeBackground ={
-    grass: '#56be36',
-    fire: '#E64B50',
-    poison: '#b97fc9',
-    flying: '#3dc7ef',
-    water: '#4592c4',
-    bug: '#74E600',
-    normal: '#a4acaf',
-    electric: '#eed535',
-    rock: '#a38c21',
-    ghost: '#7b62a3',
-    psychic: '#f366b9',
-    dragon: 'linear-gradient(180deg, #53a4cf 50%, #f16e57 50%)',
-    fairy: '#fdb9e9',
-    dark: '#707070 ',
-    steel: '#9eb7b8',
-    ice: '#51c4e7',
-    ground: '#ab9842',
-    fighting: '#d56723'
-}
+  green: '#a8d141',
+  black: '#00000E',
+  blue: '#0C5096',
+  brown: '#C77228',
+  gray: '#B5ADA3',
+  pink: '#EB78CD',
+  purple: '#985EEB',
+  red: '#B33136',
+  yellow: '#E3DE04',
+  white: '#FFFFFF',
+};
+const typeBackground = {
+  grass: '#56be36',
+  fire: '#E64B50',
+  poison: '#b97fc9',
+  flying: '#3dc7ef',
+  water: '#4592c4',
+  bug: '#74E600',
+  normal: '#a4acaf',
+  electric: '#eed535',
+  rock: '#a38c21',
+  ghost: '#7b62a3',
+  psychic: '#f366b9',
+  dragon: 'linear-gradient(180deg, #53a4cf 50%, #f16e57 50%)',
+  fairy: '#fdb9e9',
+  dark: '#707070 ',
+  steel: '#9eb7b8',
+  ice: '#51c4e7',
+  ground: '#ab9842',
+  fighting: '#d56723',
+};
 export const PokedexPage = styled.div`
     width:100%;
     min-height:100vh;
