@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: lol
-      MESSAGE: ${{ github.event }}
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE
     - name: Check out code
       uses: actions/checkout@v2
     - name: Create release branch
