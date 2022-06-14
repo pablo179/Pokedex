@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-          MESSAGE: ${{ github.event }}
+          MESSAGE: ${{ github.event_name }}
         run: echo $MESSAGE
