@@ -14,3 +14,6 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
+    - name: probando
+      if: github.event_name == 'release' && github.event.action == 'created'
+      run: echo "release"
