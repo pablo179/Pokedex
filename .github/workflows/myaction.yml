@@ -3,7 +3,8 @@ on:
   push: 
   pull_request:
   release: 
-    - type: [created]
+    types:
+      - created
 jobs:
   createrelease:
     runs-on: ubuntu-latest
