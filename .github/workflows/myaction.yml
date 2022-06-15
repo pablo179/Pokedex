@@ -1,7 +1,9 @@
 name: Create Release Branch
 on:
-  release:
-    types: [created]
+  - push
+  - pull_request
+  - release:
+      types: [created]
 jobs:
   createrelease:
     runs-on: ubuntu-latest
